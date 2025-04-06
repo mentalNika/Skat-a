@@ -1,0 +1,125 @@
+.header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+}
+
+.inner {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1720px;
+  background-color: white;
+  transition: all 0.8s ease;
+  // padding: 0 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+
+  &.scrolled {
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 25px;
+  }
+}
+
+.logo {
+  height: 30px; // Размер логотипа
+  width: auto;
+  transition: all 0.3s ease;
+
+  .scrolled & {
+    height: 25px; // Уменьшаем лого при скролле
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mainLinks {
+  display: flex;
+  gap: 20px; // Расстояние между пунктами меню
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
+  align-items: center;
+}
+
+.mainLink {
+  text-transform: uppercase;
+  font-size: var(--mantine-font-size-xs);
+  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1));
+  padding: 0 var(--mantine-spacing-sm);
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    text-decoration: none;
+  }
+
+  &[data-active] {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    border-bottom-color: var(--mantine-color-blue-6);
+  }
+}
+
+.videoBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+
+  .scrolled & {
+    opacity: 0.7;
+  }
+}
+
+/* Остальные стили остаются без изменений */
+.links {
+  // padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mainLinks {
+  margin-right: 10px;
+}
+
+.mainLink {
+  text-transform: uppercase;
+  font-size: var(--mantine-font-size-xs);
+
+  padding: 7px;
+  font-weight: 700;
+
+  @mixin hover {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    text-decoration: none;
+  }
+
+  &[data-active] {
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    border-bottom-color: var(--mantine-color-blue-6);
+  }
+}

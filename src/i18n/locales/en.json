@@ -1,0 +1,9 @@
+{
+  "header": {
+    "title": "My Application",
+    "login": "Login"
+  },
+  "home": {
+    "welcome": "Welcome to our app!"
+  }
+}
